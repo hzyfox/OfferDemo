@@ -1,3 +1,5 @@
+import org.jetbrains.annotations.Contract;
+
 import java.util.ArrayList;
 import java.util.LinkedList;
 
@@ -26,5 +28,15 @@ public class PrintFromTopToBottom {
 
         }
         return arrayList;
+    }
+
+
+
+    @Contract("true->fail")
+    private static boolean test(boolean flag){
+        if(flag){
+            System.exit(1);
+        }
+        return false;
     }
 }

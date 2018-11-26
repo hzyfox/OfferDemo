@@ -24,6 +24,25 @@ public class ParallelScavengeHeapExample {
             }
             k--;
         }
+        ParallelScavengeHeapExample parallelScavengeHeapExample0 = new ParallelScavengeHeapExample();
+        ParallelScavengeHeapExample parallelScavengeHeapExample1 =new ParallelScavengeHeapExample();
+        ParallelScavengeHeapExample.A a0  = parallelScavengeHeapExample0.new A(0);
+        ParallelScavengeHeapExample.A a1 = parallelScavengeHeapExample1.new A(1);
+        parallelScavengeHeapExample0.print(a1);
+    }
+    class  A{
+        int value;
+        A(int val){
+            value = val;
+        }
+
+        @Override
+        public String toString() {
+            return String.valueOf(value);
+        }
+    }
+    public void print(A a){
+        System.out.println(a);
     }
 
 }
