@@ -19,30 +19,23 @@ public class AMN {
         for (int i = 0; i < m; i++) {
             array[i] = i + 1;
         }
-        ArrayList<Integer> selectedNum = new ArrayList<>();
-        ArrayList<Integer> result = new ArrayList<>();
-        find(array, selectedNum, 1, result, n);
+        ArrayList<Integer> selectedNums = new ArrayList<>();
+        find(array, selectedNums, n);
     }
 
-    public static void find(int[] array, ArrayList<Integer> selectedNum, int selectOrder, ArrayList<Integer> result, int n) {
-        int lastIndex0 =0, lastIndex1 = 0;
+    public static void find(int[] array, ArrayList<Integer> selectedNums, int leftNumber) {
         for (int i = 0; i < array.length; i++) {
-            if (selectedNum.contains(array[i])) {
+            if (leftNumber == 0) {
+                System.out.println(selectedNums.toString());
+                return;
+            }
+            if (selectedNums.contains(array[i])) {
                 continue;
             }
-            lastIndex0 = result.size();
-            lastIndex1 = selectedNum.size();
-            result.add(array[i]);
-            selectedNum.add(array[i]);
-            if (selectOrder == n) {
-                System.out.println(result.toString());
-                result.remove(lastIndex0);
-                selectedNum.remove(lastIndex1);
-                continue;
-            }
-            find(array, selectedNum, selectOrder + 1, result, n);
-            result.remove(lastIndex0);
-            selectedNum.remove(lastIndex1);
+            int index = selectedNums.size();
+            selectedNums.add(array[i]);
+            find(array, selectedNums, leftNumber - 1);
+            selectedNums.remove(index);
         }
     }
 }
