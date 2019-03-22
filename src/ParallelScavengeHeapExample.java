@@ -1,5 +1,3 @@
-package jvm.heap;
-
 import java.util.Random;
 
 /**

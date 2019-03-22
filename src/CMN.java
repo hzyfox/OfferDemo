@@ -15,7 +15,20 @@ public class CMN {
             array[i] = i + 1;
         }
 //        select(array, 0, n, result);
-        find(array, 0, n, result);
+        find0(array, 0, n, result);
+    }
+
+    public static void find0(int[] array, int startIndex, int leftNum, ArrayList<Integer> result) {
+        if (leftNum == 0) {
+            System.out.println(result.toString());
+            return;
+        }
+        for (int i = startIndex; i < array.length; i++) {
+            int size = result.size();
+            result.add(array[i]);
+            find0(array, i + 1, leftNum - 1, result);
+            result.remove(size);
+        }
     }
 
 

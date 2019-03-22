@@ -131,9 +131,7 @@ public class TopK {
             return null;
         }
         int[] smallRootHeap = new int[k];
-        for (int i = 0; i < k; i++) {
-            smallRootHeap[i] = data[i];
-        }
+        System.arraycopy(data, 0, smallRootHeap, 0, k);
         for (int i = 1; i < k; i++) {
             int child = i;
             int parent = (i - 1) / 2;
