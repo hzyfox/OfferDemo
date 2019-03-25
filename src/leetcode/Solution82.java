@@ -1,4 +1,6 @@
-import java.util.Stack;
+package leetcode;
+
+import leetcode.structure.ListNode;
 
 public class Solution82 {
     public ListNode deleteDuplicates(ListNode head) {

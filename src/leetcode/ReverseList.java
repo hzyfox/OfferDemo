@@ -1,5 +1,7 @@
 package leetcode;
 
+import leetcode.structure.ListNode;
+
 /**
  * create with PACKAGE_NAME
  * USER: husterfox
@@ -25,12 +27,4 @@ public class ReverseList {
         return temp;
     }
 
-    class ListNode {
-        int val;
-        ListNode next = null;
-
-        ListNode(int val) {
-            this.val = val;
-        }
-    }
 }

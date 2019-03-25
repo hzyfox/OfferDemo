@@ -1,7 +1,6 @@
 package leetcode;
 
 import leetcode.structure.TreeNode;
-import org.jetbrains.annotations.Contract;
 
 import java.util.ArrayList;
 import java.util.LinkedList;
@@ -28,7 +27,6 @@ public class PrintFromTopToBottom {
                     linkedList.offer(node.right);
                 }
             }
-
         }
         return arrayList;
     }

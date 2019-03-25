@@ -1,3 +1,5 @@
+package leetcode;
+
 public class Solution91 {
     public int numDecodings(String s) {
         //如果最后两个可以组合成一个 那么dp=dp[i-2]， 如果最后两个不能组合成一个dp[i] = dp[i-1]

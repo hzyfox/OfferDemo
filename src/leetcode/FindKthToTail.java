@@ -1,5 +1,7 @@
 package leetcode;
 
+import leetcode.structure.ListNode;
+
 import java.util.ArrayList;
 
 /**
@@ -27,12 +29,4 @@ public class FindKthToTail {
 
     }
 
-    class ListNode {
-        int val;
-        ListNode next = null;
-
-        ListNode(int val) {
-            this.val = val;
-        }
-    }
 }

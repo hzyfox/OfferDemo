@@ -7,6 +7,7 @@ import java.util.*;
  * USER: husterfox
  */
 public class Solution77 {
+    //System.out.println("answer: https://leetcode.com/problems/combinations/discuss/26992/Short-Iterative-C%2B%2B-Answer-8ms");
     public List<List<Integer>> combine(int n, int k) {
         List<List<Integer>> result = new LinkedList<>();
         LinkedList<Integer> store = new LinkedList<>();
