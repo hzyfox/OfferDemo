@@ -46,7 +46,7 @@ public class PrintFromTopToBtoom {
     }
 
     public static void main(String[] args) {
-        TreeNode root = Helper.stringToTreeNode("[10,6,14,4,8,12,16]");
+        TreeNode root = Helper.stringToTreeNode("[10,6,14,4,8,12,16]",null);
         System.out.println(new PrintFromTopToBtoom().PrintFromTopToBottom(root));
     }
 

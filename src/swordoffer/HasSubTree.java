@@ -21,8 +21,8 @@ public class HasSubTree {
     }
 
     public static void main(String[] args) {
-        TreeNode root1 = Helper.stringToTreeNode("[8,8,null,9,null,2,null,5]");
-        TreeNode root2 = Helper.stringToTreeNode("[8,9,null,3]");
+        TreeNode root1 = Helper.stringToTreeNode("[8,8,null,9,null,2,null,5]",null);
+        TreeNode root2 = Helper.stringToTreeNode("[8,9,null,3]",null);
         System.out.println(new HasSubTree().HasSubtree(root1, root2));
     }
 }

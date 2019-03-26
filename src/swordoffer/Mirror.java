@@ -40,7 +40,7 @@ public class Mirror {
     }
 
     public static void main(String[] args) {
-        TreeNode root = Helper.stringToTreeNode("[8,null,7,null,6,null,5,null,4]");
+        TreeNode root = Helper.stringToTreeNode("[8,null,7,null,6,null,5,null,4]",null);
         new Mirror().Mirror(root);
         System.out.println(root);
     }

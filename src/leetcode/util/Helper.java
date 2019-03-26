@@ -12,7 +12,7 @@ import java.util.Queue;
  * USER: husterfox
  */
 public class Helper {
-    public static TreeNode stringToTreeNode(String input) {
+    public static TreeNode stringToTreeNode(String input, String nullStr) {
         input = input.trim();
         input = input.substring(1, input.length() - 1);
         if (input.length() == 0) {
@@ -35,7 +35,7 @@ public class Helper {
 
             item = parts[index++];
             item = item.trim();
-            if (!item.equals("null")) {
+            if (!item.equals(nullStr)) {
                 int leftNumber = Integer.parseInt(item);
                 node.left = new TreeNode(leftNumber);
                 nodeQueue.add(node.left);
@@ -47,7 +47,7 @@ public class Helper {
 
             item = parts[index++];
             item = item.trim();
-            if (!item.equals("null")) {
+            if (!item.equals(nullStr)) {
                 int rightNumber = Integer.parseInt(item);
                 node.right = new TreeNode(rightNumber);
                 nodeQueue.add(node.right);
