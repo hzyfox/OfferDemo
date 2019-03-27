@@ -56,6 +56,10 @@ public class Helper {
         return root;
     }
 
+    public static TreeNode stringToTreeNode(String input) {
+        return stringToTreeNode(input, "null");
+    }
+
     public static String integerArrayListToString(List<Integer> nums, int length) {
         if (length == 0) {
             return "[]";
