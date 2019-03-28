@@ -18,7 +18,7 @@ public class Power {
             exponent = -exponent;
         }
         double result;
-        if ((exponent & 1) == 0) {
+        if ((exponent & 1) == 1) {
             result = Power(base, exponent / 2) * Power(base, exponent / 2) * base;
         } else {
             result = Power(base, exponent / 2) * Power(base, exponent / 2);
@@ -27,7 +27,7 @@ public class Power {
     }
 
     public static void main(String[] args) {
-
+        System.out.println(new Power().Power(2.0,-1));
     }
 
 }

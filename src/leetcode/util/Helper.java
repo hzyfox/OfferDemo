@@ -116,4 +116,21 @@ public class Helper {
         return "[" + result.substring(0, result.length() - 2) + "]";
     }
 
+    public static String intArrayToString(int[] array) {
+        StringBuilder builder = new StringBuilder();
+        if (array == null) {
+            return "null";
+        }
+        builder.append("[");
+        for (int i = 0; i < array.length; i++) {
+            builder.append(array[i]);
+            builder.append(",");
+        }
+        if (builder.charAt(builder.length() - 1) == ',') {
+            builder.deleteCharAt(builder.length() - 1);
+        }
+        builder.append("]");
+        return builder.toString();
+    }
+
 }
