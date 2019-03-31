@@ -46,7 +46,7 @@ public class GetLeastNumbers {
 
     public static void main(String[] args) {
         int[] array = {4, 5, 1, 6, 2, 7, 3, 8};
-        System.out.println(new GetLeastNumbers().GetLeastNumbers_Solution(array, 4));
+        System.out.println(new GetLeastNumbers().GetLeastNumbers_Solution(array, 1));
     }
 
 }
