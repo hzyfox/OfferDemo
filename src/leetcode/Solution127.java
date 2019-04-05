@@ -2,10 +2,11 @@ package leetcode;
 
 import leetcode.util.Helper;
 
-import java.lang.reflect.Array;
-import java.util.ArrayList;
 
+import java.util.Collections;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 /**
  * create with leetcode
@@ -16,50 +17,41 @@ public class Solution127 {
         if (!wordList.contains(endWord)) {
             return 0;
         }
-        boolean[] symbol = new boolean[wordList.size()];
-        ArrayList<String> store = new ArrayList<>();
-        store.add(beginWord);
-        ArrayList<ArrayList<String>> result = new ArrayList<>();
-        dfs(beginWord, endWord, wordList, store, result, symbol);
-        if (!result.isEmpty()) {
-            System.out.println(result.get(0));
+        HashSet<String> wordListSet = new HashSet<>(wordList);
+        HashSet<String> reached = new HashSet<>();
+
+        int distance = 1;
+        reached.add(beginWord);
+        while (!reached.contains(endWord)) {
+            HashSet<String> toAdd = new HashSet<>();
+            distance++;
+            for (String word : reached) {
+                for (int i = 0; i < word.length(); i++) {
+                    char[] letters = word.toCharArray();
+                    for (char ch = 'a'; ch <= 'z'; ch++) {
+                        letters[i] = ch;
+                        String newWord = new String(letters);
+                        if (wordListSet.contains(newWord)) {
+                            toAdd.add(newWord);
+                            wordListSet.remove(newWord);
+                        }
+                    }
+                    if (toAdd.contains(endWord)) {
+                        return distance;
+                    }
+                }
+            }
+            if (toAdd.size() == 0) {
+                return 0;
+            }
+            reached = toAdd;
         }
-        return result.isEmpty() ? 0 : result.get(0).size();
+        return distance;
     }
 
-    public void dfs(String beginWord, String endWord, List<String> wordList, ArrayList<String> store, ArrayList<ArrayList<String>> result, boolean[] symbol) {
-        if (!store.isEmpty() && store.get(store.size() - 1).equals(endWord)) {
-            if (!result.isEmpty() && result.get(0).size() > store.size()) {
-                result.remove(0);
-                result.add((ArrayList<String>) store.clone());
-                return;
-            } else {
-                result.add((ArrayList<String>) store.clone());
-            }
-        }
-        for (int i = 0; i < wordList.size(); i++) {
-            if (!symbol[i] && differ(beginWord, wordList.get(i)) == 1) {
-                symbol[i] = true;
-                store.add(wordList.get(i));
-                dfs(wordList.get(i), endWord, wordList, store, result, symbol);
-                symbol[i] = false;
-                store.remove(store.size() - 1);
-            }
-        }
-    }
-
-    public int differ(String word0, String word1) {
-        int cnt = 0;
-        for (int i = 0; i < word0.length(); i++) {
-            if (word0.charAt(i) != word1.charAt(i)) {
-                cnt++;
-            }
-        }
-        return cnt;
-    }
 
     public static void main(String[] args) {
-        List<String> wordList = Helper.stringToArray("[hot,cog,dog,tot,hog,hop,pot,dot]");
-        System.out.println(new Solution127().ladderLength("hot", "dog", wordList));
+        List<String> wordList = Helper.stringToArray("[hot,dot,dog,lot,log,cog]");
+        System.out.println(new Solution127().ladderLength("hit", "cog", wordList));
     }
 }

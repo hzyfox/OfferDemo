@@ -26,9 +26,30 @@ public class GetLeastNumbers {
     }
 
     public void maintainBigRootHeap(int[] bigRootHeap, int i) {
+//        if (i < bigRootHeap[0]) {
+//            bigRootHeap[0] = i;
+//            createBigRootHeap(bigRootHeap, bigRootHeap.length, false);
+//        }
         if (i < bigRootHeap[0]) {
             bigRootHeap[0] = i;
-            createBigRootHeap(bigRootHeap, bigRootHeap.length, false);
+            for (int j = 0; j < bigRootHeap.length; ) {
+                int maxIndex = j;
+                int lchild = 2 * maxIndex + 1;
+                int rchild = 2 * maxIndex + 2;
+                if (lchild < bigRootHeap.length && bigRootHeap[maxIndex] < bigRootHeap[lchild]) {
+                    maxIndex = lchild;
+                }
+                if (rchild < bigRootHeap.length && bigRootHeap[maxIndex] < bigRootHeap[rchild]) {
+                    maxIndex = rchild;
+                }
+                if (maxIndex == j) {
+                    break;
+                }
+                int temp = bigRootHeap[maxIndex];
+                bigRootHeap[maxIndex] = bigRootHeap[j];
+                bigRootHeap[j] = temp;
+                j = maxIndex;
+            }
         }
     }
 
