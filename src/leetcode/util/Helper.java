@@ -3,9 +3,7 @@ package leetcode.util;
 import leetcode.structure.ListNode;
 import leetcode.structure.TreeNode;
 
-import java.util.LinkedList;
-import java.util.List;
-import java.util.Queue;
+import java.util.*;
 
 /**
  * create with PACKAGE_NAME
@@ -87,6 +85,18 @@ public class Helper {
             output[index] = Integer.parseInt(part);
         }
         return output;
+    }
+
+    public static ArrayList<String> stringToArray(String input) {
+        input = input.trim();
+        input = input.substring(1, input.length() - 1);
+        ArrayList<String> result = new ArrayList<>();
+        if (input.length() == 0) {
+            return result;
+        }
+        String[] lists = input.split(",");
+        result.addAll(Arrays.asList(lists));
+        return result;
     }
 
     public static ListNode stringToListNode(String input) {
