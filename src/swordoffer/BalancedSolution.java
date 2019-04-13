@@ -27,8 +27,28 @@ public class BalancedSolution {
         return 1 + Math.max(treeDepth(root.left), treeDepth(root.right));
     }
 
+    public boolean IsBalanced_Solution0(TreeNode root) {
+        return getDepth(root) != -1;
+    }
+
+    public int getDepth(TreeNode root) {
+        if (root == null) {
+            return 0;
+        }
+        int left = getDepth(root.left);
+        if (left == -1) {
+            return -1;
+        }
+        int right = getDepth(root.right);
+        if(right == -1){
+            return -1;
+        }
+        return Math.abs(left-right) > 1 ? -1: 1+ Math.max(getDepth(root.left),getDepth(root.right));
+
+    }
+
     public static void main(String[] args) {
-        TreeNode root = Helper.stringToTreeNode("[1,2,3,4,5,#,#,#,#,6]","#");
+        TreeNode root = Helper.stringToTreeNode("[1,2,3,4,5,#,#,#,#,6]", "#");
         System.out.println(new BalancedSolution().IsBalanced_Solution(root));
     }
 }

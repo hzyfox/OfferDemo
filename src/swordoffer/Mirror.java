@@ -10,7 +10,7 @@ import leetcode.util.Helper;
  */
 public class Mirror {
     public void Mirror(TreeNode root) {
-        if (root == null || (root.left == null && root.right == null)) {
+        if (root == null) {
             return;
         }
         TreeNode tmp = root.left;
