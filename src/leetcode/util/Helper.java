@@ -54,6 +54,37 @@ public class Helper {
         return root;
     }
 
+    public static String treeNodeToString(TreeNode root) {
+        StringBuilder builder = new StringBuilder();
+        builder.append("[");
+        if (root == null) {
+            builder.append("null");
+            builder.append("]");
+            return builder.toString();
+        }
+
+        LinkedList<TreeNode> queue = new LinkedList<>();
+        queue.add(root);
+        while (!queue.isEmpty()) {
+            TreeNode tmp = queue.poll();
+            if (tmp == null) {
+                builder.append("null");
+                builder.append(",");
+            } else {
+                builder.append(tmp.val);
+                builder.append(",");
+                queue.add(tmp.left);
+                queue.add(tmp.right);
+            }
+        }
+        if (builder.charAt(builder.length() - 1) == ',') {
+            builder.deleteCharAt(builder.length() - 1);
+        }
+        builder.append("]");
+        return builder.toString();
+    }
+
+
     public static TreeNode stringToTreeNode(String input) {
         return stringToTreeNode(input, "null");
     }

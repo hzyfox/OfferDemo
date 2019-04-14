@@ -1,6 +1,9 @@
 package swordoffer;
 
+import java.util.ArrayDeque;
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.LinkedList;
 
 /**
  * create with swordoffer
@@ -37,9 +40,30 @@ public class MaxInWindow {
         return ans;
     }
 
+    public ArrayList<Integer> maxInWindows0(int[] num, int size) {
+        ArrayDeque<Integer> deque = new ArrayDeque<>();
+        ArrayList<Integer> ans = new ArrayList<>();
+        for (int i = 0; i < num.length; i++) {
+            // 注意要用while循环 当deque不为空,比较队列尾，是否比num[i]大 且等于号也要加上，最大值应该为最新的下标
+            while (!deque.isEmpty() && num[deque.peekLast()] <= num[i]) {
+                deque.pollLast();
+            }
+            //如果deque不为空，且队列前面过期了
+            while (!deque.isEmpty() && i - deque.peekFirst() + 1 > size) {
+                deque.pollFirst();
+            }
+            deque.addLast(i);
+            if (i + 1 >= size) {
+                ans.add(num[deque.peekFirst()]);
+            }
+        }
+        return ans;
+    }
+
+
     public static void main(String[] args) {
         int[] test = {2, 3, 4, 2, 6, 2, 5, 1};
-        System.out.println(new MaxInWindow().maxInWindows(test, 3));
+        System.out.println(new MaxInWindow().maxInWindows0(test, 3));
     }
 }
 

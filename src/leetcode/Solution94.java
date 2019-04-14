@@ -17,7 +17,7 @@ public class Solution94 {
             return ans;
         }
         //  inorder(root, ans);
-        inorder0(root, ans);
+        inorder1(root, ans);
         return ans;
 
     }
@@ -32,36 +32,42 @@ public class Solution94 {
         }
     }
 
-    public void inorder0(TreeNode root, List<Integer> ans) {
-        //用于保存遍历过左子树的root
-        List<TreeNode> visited = new LinkedList<>();
+    public void preOrder(TreeNode root, List<Integer> ans) {
         Stack<TreeNode> stack = new Stack<>();
+        if (root == null) {
+            return;
+        }
         stack.push(root);
         while (!stack.isEmpty()) {
-            if (!visited.contains(root)) {
-                visited.add(root);
-                if (root.left != null) {
-                    stack.push(root.left);
-                    root = root.left;
-                } else {
-                    root = stack.pop();
-                    ans.add(root.val);
-                    if (root.right != null) {
-                        stack.push(root.right);
-                        root = root.right;
-                    }
-                }
-            } else {
-                //到这一步时，底下的左右子树已经遍历完了，需要再pop出来
-                root = stack.pop();
-                ans.add(root.val);
-                if (root.right != null) {
-                    stack.push(root.right);
-                    root = root.right;
-                }
+            TreeNode tmp = stack.pop();
+            ans.add(tmp.val);
+            if (tmp.right != null) {
+                stack.push(tmp.right);
+            }
+            if (tmp.left != null) {
+                stack.push(tmp.left);
             }
         }
     }
+
+    public void postOrder(TreeNode root, List<Integer> ans) {
+        Stack<TreeNode> stack = new Stack<>();
+        if (root == null) {
+            return;
+        }
+        stack.push(root);
+        while (!stack.isEmpty()) {
+            TreeNode tmp = stack.pop();
+            if (tmp.left != null) {
+                stack.push(tmp.left);
+            }
+            if (tmp.right != null) {
+                stack.push(tmp.right);
+            }
+            ans.add(0, tmp.val);
+        }
+    }
+
 
     public void inorder1(TreeNode root, List<Integer> l) {
         Stack<TreeNode> s = new Stack<>();
