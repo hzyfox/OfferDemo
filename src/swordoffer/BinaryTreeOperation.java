@@ -131,6 +131,22 @@ public class BinaryTreeOperation {
         }
     }
 
+    public TreeNode predecessor(TreeNode root, int target) {
+        if (root == null) {
+            return null;
+        }
+        if (target <= root.val) {
+            return predecessor(root.left, target);
+        } else {
+            TreeNode right = floor(root.right, target);
+            if (right == null) {
+                return root;
+            } else {
+                return right;
+            }
+        }
+    }
+
     public TreeNode ceil(TreeNode root, int target) {
         if (root == null) {
             return null;
@@ -151,13 +167,27 @@ public class BinaryTreeOperation {
         }
     }
 
+    public TreeNode successor(TreeNode root, int target) {
+        if (root == null) {
+            return null;
+        }
+        if (target >= root.val) {
+            return successor(root.right, target);
+        } else {
+            TreeNode left = successor(root.left, target);
+            if (left == null) {
+                return root;
+            } else {
+                return left;
+            }
+        }
+    }
+
     public static void main(String[] args) {
         int[] trees = {5, 3, 8, 1, 2, 6, 7};
         BinaryTreeOperation binaryTreeOperation = new BinaryTreeOperation();
         TreeNode root = binaryTreeOperation.createBinaryTree(trees);
         System.out.println("trees: " + Helper.intArrayToString(trees));
-        System.out.println("buildTree: " + Helper.treeNodeToString(root));
-        root = binaryTreeOperation.delete(root, 5);
-        System.out.println("delete 5: " + Helper.treeNodeToString(root));
+        System.out.println(" 3 predecessor: " + (binaryTreeOperation.predecessor(root, 1) == null ? "null" : binaryTreeOperation.predecessor(root, 1).val));
     }
 }
