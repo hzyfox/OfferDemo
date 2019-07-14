@@ -6,6 +6,42 @@ package swordoffer;
  */
 
 public class IsMatch {
+    public boolean match1(char[] str, char[] pattern) {
+        boolean[][] ans = new boolean[str.length + 1][pattern.length + 1];
+
+        ans[0][0] = true;
+
+        for (int i = 1; i < pattern.length + 1; i++) {
+            if (i % 2 == 0 && ans[0][i - 2] && pattern[i - 1] == '*') {
+                ans[0][i] = true;
+            }
+        }
+
+        for (int i = 1; i < str.length + 1; i++) {
+            for (int j = 1; j < pattern.length + 1; j++) {
+                if (str[i - 1] == pattern[j-1] || pattern[j - 1] == '.') {
+                    ans[i][j] = ans[i - 1][j - 1];
+                } else {
+                    if(pattern[j-1] == '*'){
+                        if (str[i - 1] != pattern[j - 2] && pattern[j - 2] != '.') {
+                            ans[i][j] = ans[i][j - 2];
+                        }
+                        else {
+                            ans[i][j] = ans[i][j - 2] || ans[i][j - 1] || ans[i - 1][j];
+                        }
+                    }
+                }
+            }
+        }
+
+        return ans[str.length][pattern.length];
+
+    }
+
+    public static void main(String[] args) {
+        System.out.println(new IsMatch().match1("a".toCharArray(), ".*".toCharArray()));
+    }
+
     public boolean match(char[] str, char[] pattern) {
         // corner case
         if (str == null || pattern == null) {

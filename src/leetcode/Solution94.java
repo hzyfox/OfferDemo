@@ -4,6 +4,7 @@ import leetcode.structure.TreeNode;
 
 import java.util.LinkedList;
 import java.util.List;
+import java.util.PriorityQueue;
 import java.util.Stack;
 
 /**
@@ -84,6 +85,7 @@ public class Solution94 {
     }
 
     public static void main(String[] args) {
+        PriorityQueue<Integer> bigHeap = new PriorityQueue<>((a, b) -> a-b);
         TreeNode root = new TreeNode(1);
         root.right = new TreeNode(2);
         root.right.left = new TreeNode(3);

@@ -10,6 +10,28 @@ import java.util.*;
  * USER: husterfox
  */
 public class Helper {
+    public static String stringListToString(List<String> stringList) {
+        StringBuilder sb = new StringBuilder("[");
+        for (String item : stringList) {
+            sb.append(item);
+            sb.append(",");
+        }
+
+        sb.setCharAt(sb.length() - 1, ']');
+        return sb.toString();
+    }
+
+    public static List<String> stringToStringList(String line){
+        line = line.substring(1, line.length()-1).replace(" ","");
+        String[] items = line.split(",");
+        List<String> list = new ArrayList<>();
+        for(String item: items){
+            item = item.substring(1,item.length()-1);
+            list.add(item);
+        }
+        return list;
+    }
+
     public static TreeNode stringToTreeNode(String input, String nullStr) {
         input = input.trim();
         input = input.substring(1, input.length() - 1);
