@@ -11,7 +11,7 @@ public class KMP {
         for (int i = 1; i < s.length(); i++) {
             for (int j = f[i - 1]; ; j = f[j]) {
                 if (s.charAt(j + 1) == s.charAt(i)) {
-                    f[i] = f[j] + 1;
+                    f[i] = j + 1;
                 } else {
                     if (j == -1) {
                         break;
