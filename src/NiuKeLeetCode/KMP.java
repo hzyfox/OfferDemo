@@ -1,17 +1,23 @@
 package NiuKeLeetCode;
 
+import sun.misc.Unsafe;
+
+import java.util.concurrent.ConcurrentSkipListMap;
+
 /**
  * create with NiuKeLeetCode
  * USER: husterfox
  */
 public class KMP {
-    public int[] caclF(String s) {
-        int[] f = new int[s.length()];
-        f[0] = -1;
-        for (int i = 1; i < s.length(); i++) {
-            for (int j = f[i - 1]; ; j = f[j]) {
-                if (s.charAt(j + 1) == s.charAt(i)) {
-                    f[i] = j + 1;
+    private int[] next(String a) {
+        char[] arr = a.toCharArray();
+        int[] next = new int[arr.length];
+        next[0] = -1;
+        for (int i = 1; i < arr.length; i++) {
+            for (int j = next[i - 1]; ; j = next[j]) {
+                if (arr[j + 1] == arr[i]) {
+                    next[i] = j + 1;
+                    break;
                 } else {
                     if (j == -1) {
                         break;
@@ -19,30 +25,28 @@ public class KMP {
                 }
             }
         }
-        return f;
+        for (int i = 0; i < next.length; i++) {
+            next[i] += 1;
+        }
+        return next;
     }
 
     public int kmp(String s, String p) {
-        int sIndex = 0;
-        int pIndex = 0;
-        int[] f = caclF(p);
-        while (sIndex < s.length() && pIndex < p.length()) {
-            if (s.charAt(sIndex) == p.charAt(pIndex)) {
-                sIndex++;
-                pIndex++;
+        int[] next = next(p);
+        int i = 0, j = 0;
+        while (i < s.length() && j < p.length()) {
+            if (s.charAt(i) == p.charAt(j)) {
+                i++;
+                j++;
             } else {
-                if (pIndex == 0) {
-                    sIndex++;
+                if (j == 0) {
+                    i++;
                 } else {
-                    sIndex = f[pIndex - 1] + 1;
+                    j = next[j - 1];
                 }
             }
         }
-        if (pIndex == p.length()) {
-            return sIndex - p.length();
-        } else {
-            return -1;
-        }
+        return j == p.length() ? i - p.length() : -1;
     }
 
     public static void main(String[] args) {
