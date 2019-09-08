@@ -9,7 +9,7 @@ import java.util.ArrayList;
  */
 public class Coins {
     public static void main(String[] args) {
-        int[] coins = {1, 2, 5, 10};
+        int[] coins = {1,2, 5, 10};
         int m = 20;
         int[] ans = new int[m + 1];
         ArrayList<ArrayList<Integer>> store = new ArrayList<>(21);
@@ -22,8 +22,8 @@ public class Coins {
             System.out.format("凑齐%d元 至少需要: %d, 需要的具体硬币是： %s \n", i, ans[i], store.get(i++));
         }
         ArrayList<Integer> finalAns = new ArrayList<>();
-        rangeCoin(coins, 20, finalAns);
-        System.out.printf("凑齐%d-%d元 需要%d个硬币，分别是: %s\n", 1, 20, finalAns.size(), finalAns);
+        rangeCoin(coins, 30, finalAns);
+        System.out.printf("凑齐%d-%d元 需要%d个硬币，分别是: %s\n", 1, 30, finalAns.size(), finalAns);
 
 
     }
