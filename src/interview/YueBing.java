@@ -1,4 +1,4 @@
-package NiuKeLeetCode;
+package interview;
 
 import javax.swing.*;
 import java.awt.*;
@@ -22,7 +22,7 @@ class Test extends JFrame implements ActionListener {
     private JButton start;
     private JButton stop;
     private boolean flag = false;
-    private String[] str = {"强博", "郑博", "超博", "小花", "轩博", "冬博", "小胡", "小冯", "明玉", "姜焰", "张一鹏", "开希", "小马", "熊倩"};
+    private String[] str = {"强博", "郑博", "超博", "小花", "轩博", "冬博", "小冯", "明玉", "姜焰", "开希", "小马", "熊倩","代博","胡振宇","张一鹏","沈欢"};
     private int count = 0;
 
     Test() {
@@ -45,15 +45,16 @@ class Test extends JFrame implements ActionListener {
                 if (count % 2 == 0) {
                     start.setEnabled(true);
                     stop.setEnabled(false);
-                    start.setFocusable(true);
                     stop.setFocusable(false);
-                    rememberSet.add(selected);
+                    start.setFocusable(true);
+                    start.requestFocus();
                     flag = false;
                 } else if (count % 2 == 1) {
                     start.setEnabled(false);
                     stop.setEnabled(true);
-                    stop.setFocusable(true);
                     start.setFocusable(false);
+                    stop.setFocusable(true);
+                    stop.requestFocus();
                     flag = true;
                 }
             }
@@ -75,15 +76,16 @@ class Test extends JFrame implements ActionListener {
                 if (count % 2 == 0) {
                     start.setEnabled(true);
                     stop.setEnabled(false);
-                    start.setFocusable(true);
                     stop.setFocusable(false);
-                    rememberSet.add(selected);
+                    start.setFocusable(true);
+                    start.requestFocus();
                     flag = false;
                 } else if (count % 2 == 1) {
                     start.setEnabled(false);
                     stop.setEnabled(true);
-                    stop.setFocusable(true);
                     start.setFocusable(false);
+                    stop.setFocusable(true);
+                    stop.requestFocus();
                     flag = true;
                 }
             }
@@ -118,6 +120,7 @@ class Test extends JFrame implements ActionListener {
             text.setEnabled(false);
             start.setFocusable(false);
             stop.setFocusable(true);
+            stop.requestFocus();
             flag = true;
         } else if (obj == stop) {
             count += 1;
@@ -126,8 +129,9 @@ class Test extends JFrame implements ActionListener {
             start.setEnabled(true);
             stop.setEnabled(false);
             text.setEnabled(false);
-            start.setFocusable(true);
             stop.setFocusable(false);
+            start.setFocusable(true);
+            start.requestFocus();
             flag = false;
         }
     }
