@@ -21,7 +21,6 @@ public class TwoSum {
             results.put(tmp,i);
         }
         return  index;
-
     }
 
 }
