@@ -1,8 +1,6 @@
-package zyp.first100;
+package zyp.leetcode.first100;
 
-import zyp.first100.structure.ListNode;
-
-import java.util.Map;
+import zyp.structure.ListNode;
 
 /**
  * @author zyp

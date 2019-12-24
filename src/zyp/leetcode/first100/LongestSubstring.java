@@ -1,6 +1,4 @@
-package zyp.first100;
-
-import java.util.ArrayList;
+package zyp.leetcode.first100;
 
 /**
  * @author zyp

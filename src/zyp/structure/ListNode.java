@@ -1,4 +1,4 @@
-package zyp.first100.structure;
+package zyp.structure;
 
 /**
  * @author zyp

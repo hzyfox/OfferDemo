@@ -1,4 +1,4 @@
-package zyp.first100;
+package zyp.leetcode.first100;
 
 import java.util.Arrays;
 import java.util.LinkedList;
