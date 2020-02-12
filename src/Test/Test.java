@@ -21,25 +21,14 @@ public  class Test {
 //        results.add(null);
 //        int[] a={0,1};
 
-        String a = "123";
-        String b = "123";
-        a = "456";
-        System.out.println(b);
+        int a = 1;
+        int b = 2;
+        String x = b+""+a;
+        System.out.println(x);
 
-
-        List<List<Integer>> list = new LinkedList<>();
-
-        list.add(Arrays.asList(1));
-        System.out.println(list.toString());
-        for(int i =0;i<list.size();i++){
-            list.get(i).add(2);
-
-        }
-        System.out.println(list.toString());
-
-
-
-
+     StringBuilder str = new StringBuilder();
+     str.append(a);
+        System.out.println(str.toString());
 
 
     }

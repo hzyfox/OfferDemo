@@ -18,6 +18,7 @@ public class PermutationSwap {
 
     public void helper(char[] array,int i,ArrayList<String> list){
         if(i==array.length-1){
+            //这里加判断的原因是存在重复字母的情况例如abb
             if(!list.contains(String.valueOf(array))){
                 System.out.println(String.valueOf(array));
                 list.add(String.valueOf(array));
