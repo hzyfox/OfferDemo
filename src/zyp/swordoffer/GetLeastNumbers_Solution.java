@@ -9,16 +9,16 @@ public class GetLeastNumbers_Solution {
     public static void main(String[] args) {
         GetLeastNumbers_Solution o =new GetLeastNumbers_Solution();
         int[] a = {5,8,9,4,3,7,6};
-        o.selectSort(a);
+//        o.selectSort(a);
 //        o.bubbleSort(a);
 //        o.insertSort(a);
 //        o.quickSort(a,0,a.length-1);
 //        o.mergeSort(a,0,a.length-1);
 //        o.buildMaxheap(a);
-        for(int x:a){
-            System.out.println(x);
-        }
-//        o.maxHeap(a,3);
+//        for(int x:a){
+//            System.out.println(x);
+//        }
+        o.maxHeap(a,3);
     }
 
     public ArrayList<Integer> GetLeastNumbers_Solution(int [] input, int k) {
@@ -59,6 +59,7 @@ public class GetLeastNumbers_Solution {
         PriorityQueue<Integer> maxHeap = new PriorityQueue<>(k, new Comparator<Integer>() {
             @Override
             public int compare(Integer o1, Integer o2) {
+                System.out.println(o2-o1);
                 return o2-o1;
             }
         });
@@ -67,6 +68,7 @@ public class GetLeastNumbers_Solution {
             if(maxHeap.size()==0||maxHeap.size()<k){
                 maxHeap.offer(array[i]);
             }else if(maxHeap.peek()>array[i]){
+                System.out.println(maxHeap.peek()+"!");
                 maxHeap.poll();
                 maxHeap.offer(array[i]);
             }
