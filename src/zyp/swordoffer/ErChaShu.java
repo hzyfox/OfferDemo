@@ -6,12 +6,12 @@ import zyp.structure.TreeNode;
  * @author zyp
  */
 public class ErChaShu {
-    public TreeNode reConstructBinaryTree(int [] pre, int [] in) {
+    public  static TreeNode reConstructBinaryTree(int [] pre, int [] in) {
         TreeNode treeNode =binaryTree(0,pre.length-1,0,in.length-1,pre,in);
         return treeNode;
     }
 
-    public TreeNode binaryTree(int preI,int preJ,int inI,int inJ,int []pre,int []in){
+    public static TreeNode binaryTree(int preI,int preJ,int inI,int inJ,int []pre,int []in){
         if(preJ < preI){
             return null;
         }
