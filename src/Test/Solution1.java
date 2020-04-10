@@ -18,15 +18,19 @@ public class Solution1 {
         }
 
         PriorityQueue<Integer> priorityQueue = new PriorityQueue<>((a, b) -> b - a);
+        PriorityQueue<Integer> priorityQueue1 = new PriorityQueue<>();
         for (int elem : prices) {
             priorityQueue.offer(elem);
+            priorityQueue1.offer(elem);
         }
-        int ans = 0;
+        long ans = 0;
+
         while (priorityQueue.size() >= 3) {
             ans += priorityQueue.poll();
             ans += priorityQueue.poll();
             priorityQueue.poll();
         }
+
         while(!priorityQueue.isEmpty()){
             ans += priorityQueue.poll();
         }
