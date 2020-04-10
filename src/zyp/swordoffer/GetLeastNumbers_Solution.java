@@ -68,13 +68,17 @@ public class GetLeastNumbers_Solution {
             if(maxHeap.size()==0||maxHeap.size()<k){
                 maxHeap.offer(array[i]);
             }else if(maxHeap.peek()>array[i]){
-                System.out.println(maxHeap.peek()+"!");
+//                System.out.println(maxHeap.peek()+"!");
                 maxHeap.poll();
                 maxHeap.offer(array[i]);
             }
         }
+//        for(int i = 0;i<maxHeap.size();i++){
+//            System.out.println(maxHeap.);
+//        }
+//
         for(int x:maxHeap){
-            System.out.println(x);
+            System.out.println(x+"!");
             res.add(x);
         }
         return res;

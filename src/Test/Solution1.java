@@ -3,10 +3,7 @@ package Test;
 import java.util.PriorityQueue;
 import java.util.Scanner;
 
-/**
- * create with Test
- * USER: husterfox
- */
+
 public class Solution1 {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
