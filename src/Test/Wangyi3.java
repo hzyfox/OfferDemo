@@ -2,10 +2,7 @@ package Test;
 
 import java.util.*;
 
-/**
- * create with Test
- * USER: husterfox
- */
+
 public class Wangyi3 {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
@@ -13,6 +10,7 @@ public class Wangyi3 {
         Data[] table = new Data[n];
         Data[] table1 = new Data[n];
         ArrayList<JoinedData> tmpTable = new ArrayList<JoinedData>();
+
 
         for (int i = 0; i < n; i++) {
             String[] elem = scanner.nextLine().split(" ");
