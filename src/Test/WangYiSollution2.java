@@ -15,7 +15,7 @@ public class WangYiSollution2 {
         scanner.nextLine();
         boolean[][] flag = new boolean[n][n];
         for(int i = 0;i<n;i++){
-            Arrays.fill(flag[i],true);
+            Arrays.fill(flag[i],false);
         }
         for(int i = 0;i<n;i++){
             map[i] = scanner.nextLine().split("");
@@ -29,22 +29,22 @@ public class WangYiSollution2 {
     }
 
     public static  void dfs (String[][] map,int i,int j,int n,boolean[][] flag){
-        if(i<0||i>=n||j<0||j>=n||flag[i][j]==false){
+        if(i<0||i>=n||j<0||j>=n||flag[i][j]){
             return;
         }
 
         if(map[i][j].equals("#")){
-            flag[i][j] = false;
+            flag[i][j] = true;
             return;
         }
 
         if(!map[i][j].equals(".")&&!map[i][j].equals("#")){
             res+= Integer.valueOf(map[i][j]);
-            flag[i][j] = false;
+            flag[i][j] = true;
         }
 
         if(!map[i][j].equals("#")){
-            flag[i][j] = false;
+            flag[i][j] = true;
             //右
             dfs(map,i,j+1,n,flag);
             //下
